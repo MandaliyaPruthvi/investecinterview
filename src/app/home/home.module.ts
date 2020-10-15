@@ -5,15 +5,18 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
+// import { Device } from '@ionic-native/device/ngx';
+import { Unlocker } from '../../app/components/unlocker/unlocker.component'
 
 
 @NgModule({
   imports: [
+    // Device,
     CommonModule,
     FormsModule,
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, Unlocker]
 })
 export class HomePageModule {}

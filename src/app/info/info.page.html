@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Info</ion-title>
+    <ion-button class="stateData" *ngIf="showStateData" slot="end">state data: {{name}}</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item no-lines>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input placeholder="Enter your name" [(ngModel)]="name"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="saveData()">Save</ion-button>
+    </ion-card-content>
+
+    <ion-card *ngIf="showStateData && buttonClicked">  
+      <ion-card-header>
+        <ion-card-title color="danger">Alert</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Please wait for 5 seconds you will be redirected to next view!
+      </ion-card-content>
+    </ion-card>
+  </ion-card>
+</ion-content>

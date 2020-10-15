@@ -1,8 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Home
     </ion-title>
+    <ion-button class="stateData" slot="end">state data: {{name}}</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +15,20 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="danger">Device Information</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p *ngIf="isEmulator">You are running this application in Simulator / Emulator</p>
+        <p *ngIf="isPlatform && !isEmulator">You are running this application in actual device</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" class="btn1" (click)="goto('info')">Press me to go to Info</ion-button>
+    <ion-button expand="block" class="btn2" (click)="goto('display')">Press me to go to display</ion-button>
+    <ion-button expand="block" class="btn3">Press me</ion-button>
+    <unlocker (unlocked)="unlockedHandler($event)"></unlocker>
   </div>
+
 </ion-content>
